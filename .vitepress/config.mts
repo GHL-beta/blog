@@ -5,11 +5,11 @@ export default defineConfig({
   title: "Ad Blog",
   lang: "zh",
   description: "Ad 的博客",
-  head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
+  head: [['link', { rel: 'icon', href: '../favicon.ico' }]],
   lastUpdated: true,
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
-    logo: '/favicon.ico',
+    logo: '../favicon.ico',
     nav: [
       { text: '> 主页 <', link: '/' },
       { text: '所有文章',
@@ -46,7 +46,7 @@ export default defineConfig({
     },
 
     lastUpdated: {
-      text: '最后更新于：',
+      text: '最后更新于',
       formatOptions: {
         dateStyle: 'full',
         timeStyle: 'medium',
