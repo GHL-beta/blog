@@ -54,7 +54,7 @@ export default defineConfig({
     },
     
     footer: {
-      message: '由 <a href="https://vitepress.dev" target="_blank">VitePress</a> 强力驱动<br><a href="https://icp.gov.moe/?keyword=20245460" target="_blank">萌ICP备20245460号</a>',
+      message: '由 <a href="https://vitepress.dev" target="_blank">VitePress</a> 强力驱动<br><a href="https://icp.gov.moe/?keyword=20252024" target="_blank">萌ICP备20252024号</a>',
       copyright: 'Copyright © 2024 <a href="https://github.com/Ad-closeNN" target="_blank">Ad_closeNN</a>'
     },
     search: {
