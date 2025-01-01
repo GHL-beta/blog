@@ -1,9 +1,12 @@
 ---
 prev: false
+next: 
+    text: "搭建 BPB Panel"
+    link: "docs/guide/BPB-Panel"
 ---
 
 # 在 Cloudflare 上部署 EdgeTunnel
-这是什么？
+[这是什么？](https://github.com/cmliu/edgetunnel)
 
 一个能在 [Cloudflare](https://www.cloudflare.com) [Workers](https://workers.cloudflare.com/)/[Pages](https://pages.cloudflare.com/) 上运行的**代理服务端**。旨在方便用户搭建[代理服务器](https://zh.wikipedia.org/wiki/%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8)并[突破网络审查](https://zh.wikipedia.org/wiki/%E7%AA%81%E7%A0%B4%E7%BD%91%E7%BB%9C%E5%AE%A1%E6%9F%A5)。
 
@@ -13,7 +16,7 @@ prev: false
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/tKe9xUuFODA?si=XdaRWAHyTbF1KMbg&amp;start=105" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-## 注册账号
+## 注册 Cloudflare 账号
 ::: danger :warning: 警告
 使用[本教程](#)需要承担一定的风险，推荐使用`小号`来进行操作。
 - Cloudflare 的[封号风险](https://www.cloudflare.com/zh-cn/terms)：`(j) use the Services to provide a virtual private network or other similar proxy services.`。
@@ -25,7 +28,7 @@ prev: false
 
 ---
 
-打开 [Cloudflare 注册链接](https://dash.cloudflare.com/sign-up)，填写好注册用的账号和密码，过一下人机验证能，然后点击 `Sign up` 按钮。
+打开 [Cloudflare 注册链接](https://dash.cloudflare.com/sign-up)，填写好注册用的账号和密码，过一下人机验证，然后点击 `Sign up` 按钮。
 
 Cloudflare 密码设置的规则如下：
 - 至少 8 个字符
@@ -40,12 +43,19 @@ Cloudflare 密码设置的规则如下：
 ![Cloudflare-Dashboard](../../pics/Cloudflare-Dashboard.png)
 
 ## 复制代码
-### 使用 Cloudflare Workers 搭建
+### 使用 Workers 搭建
 首先去到由 [CMLiussss](https://www.youtube.com/@CMLiussss) 大佬开发的基于原作者 [zizifn](https://github.com/zizifn) 开发的 [新版 EdgeTunnel 的 GitHub 仓库](https://github.com/cmliu/edgetunnel)。
 
 点击仓库中的 `_worker.js` 或直接打开[该链接](https://github.com/cmliu/edgetunnel/blob/main/_worker.js)。点击`复制`图标，如图所示。
 
 ![GitHub-_worker.js.png](../../pics/GitHub-_worker.js.png)
+
+### 使用 Pages 搭建
+需要下载 [edgetunnel-main.zip](https://github.com/cmliu/edgetunnel/archive/refs/heads/main.zip)（里面也有_worker.js），但是后面会讲到，下了的话先不要删掉。
+
+---
+
+其他：
 
 <details>
 <summary>混淆 _worker.js 代码</summary>
@@ -89,7 +99,7 @@ Copy raw file 后，返回到 [Cloudflare Dashboard](https://dash.cloudflare.com
 ---
 
 ### 使用 Pages 搭建
-给[仓库](https://cmliu/edgetunnel)点上一个`star`并下载 [main.zip](https://github.com/cmliu/edgetunnel/archive/refs/heads/main.zip) 。
+给[仓库](https://cmliu/edgetunnel)点上一个`star`并下载 [edgetunnel-main.zip](https://github.com/cmliu/edgetunnel/archive/refs/heads/main.zip) 。
 
 下载后来到 [Cloudflare Dashboard](https://dash.cloudflare.com)，在左侧列表中找到 `Workers 和 Pages` 并点击它，上传资产，创建一个 Pages。
 
@@ -97,7 +107,7 @@ Copy raw file 后，返回到 [Cloudflare Dashboard](https://dash.cloudflare.com
 
 ![Create-Pages](../../pics/Create-Pages.png)
 
-Pages 的名称请参阅 [#使用 Workers 搭建](#使用-workers-搭建) 部分。上传的文件为刚下载的 [main.zip](https://github.com/cmliu/edgetunnel/archive/refs/heads/main.zip)。然后点击 `部署站点` 即可将 EdgeTunnel 部署到 Cloudflare Pages 上。点击 `继续处理项目` 即可返回到 Page 控制台。**先不要删除 main.zip**。
+Pages 的名称请参阅 [#使用 Workers 搭建](#使用-workers-搭建) 部分。上传的文件为刚下载的 [edgetunnel-main.zip](https://github.com/cmliu/edgetunnel/archive/refs/heads/main.zip)。然后点击 `部署站点` 即可将 EdgeTunnel 部署到 Cloudflare Pages 上。点击 `继续处理项目` 即可返回到 Page 控制台。**先不要删除 edgetunnel-main.zip**。
 
 ![Upload-and-Deploy](../../pics/Upload-and-Deploy.png)
 
@@ -121,7 +131,7 @@ Pages 的名称请参阅 [#使用 Workers 搭建](#使用-workers-搭建) 部分
 
 :::warning :warning: 注意
 - **一开始使用 Workers 方式部署 EdgeTunnel 的可以直接点击 `部署` 按钮，等待部署完毕即可将创建的 UUID 应用到 Worker 上。**
-- **一开始使用 Pages 方式部署 EdgeTunnel 的需要先点击 `保存` 按钮，然后返回`部署`页面，点击右上角的`创建部署`，重新上传一遍在 GitHub 下载的 main.zip。然后点击`保存并部署`才可将创建的 UUID 应用到 Page 上。**
+- **一开始使用 Pages 方式部署 EdgeTunnel 的需要先点击 `保存` 按钮，然后返回`部署`页面，点击右上角的`创建部署`，重新上传一遍在 GitHub 下载的 edgetunnel-main.zip。然后点击`保存并部署`才可将创建的 UUID 应用到 Page 上。**
 :::
 
 ### 配置 Cloudflare KV
@@ -160,7 +170,7 @@ Pages 的名称请参阅 [#使用 Workers 搭建](#使用-workers-搭建) 部分
 
 ::: warning :warning: 注意
 - **一开始使用 Workers 方式部署 EdgeTunnel 的可以直接点击 `部署` 按钮，等待部署完毕即可将创建的 KV 应用到 Worker 上。**
-- **一开始使用 Pages 方式部署 EdgeTunnel 的需要先点击 `保存` 按钮，然后返回`部署`页面，点击右上角的`创建部署`，重新上传一遍在 GitHub 下载的 main.zip。然后点击`保存并部署`才可将创建的 KV 应用到 Page 上。**
+- **一开始使用 Pages 方式部署 EdgeTunnel 的需要先点击 `保存` 按钮，然后返回`部署`页面，点击右上角的`创建部署`，重新上传一遍在 GitHub 下载的 edgetunnel-main.zip。然后点击`保存并部署`才可将创建的 KV 应用到 Page 上。**
 :::
 
 ### 配置自定义域名
@@ -170,8 +180,6 @@ Pages 的名称请参阅 [#使用 Workers 搭建](#使用-workers-搭建) 部分
 
 ::: tip :notebook: 提示
 接下来的步骤需要一个 **已托管在 Cloudflare 的域名**。如果你还没有域名，可以参照 [技术怕爬爬虾](https://space.bilibili.com/316183842) 的 [[2024最新免费域名教程，可托管CF，零失败率，解决所有坑点。]](https://www.bilibili.com/video/BV1by411B7Ko) 视频获取免费的 `us.kg` 和 `cloudns.be` 等域名。
-
-<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=1956089632&bvid=BV1by411B7Ko&cid=1612426882&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
 
 至于怎么把域名托管到 Cloudflare 上，同样可以参照上面的视频。这里同样不多说，以已托管的域名为例子。
 :::
@@ -192,10 +200,10 @@ Pages 的名称请参阅 [#使用 Workers 搭建](#使用-workers-搭建) 部分
 
 用浏览器访问 `edge.test.us.kg`，然后在链接处加上在 [#配置 UUID](#配置-uuid) 时添加的 UUID（假设是 `114514`）。这时需要访问的链接就是 `edge.test.us.kg/114514`。然后，相应的页面会告诉你一些常用的代理软件的订阅链接（如下图）。
 
-比如需要订阅进 Clash Verge/Meta/ForWindows 的，就可以用 `https://edge.test.us.kg/114514?clash` 来订阅。
+比如需要订阅进 `Clash Verge`/`Meta`/`For Windows` 的，就可以用 `https://edge.test.us.kg/114514?clash` 来订阅。
 
 ![EdgeTunnel-subscribe-info](../../pics/EdgeTunnel-subscribe-info.png)
 
 ![Clash-Verge-EdgeTunnel](../../pics/Clash-Verge-EdgeTunnel.png)
 
----
+其他订阅链接，请自行探索。
