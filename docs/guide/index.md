@@ -11,11 +11,17 @@ hero:
       link: ../../index
 
 features:
+  - title: 搭建 EdgeTunnel
+    details: 利用 Cloudflare Workers/Pages 搭建 EdgeTunnel 代理服务端
+    link: docs/guide/EdgeTunnel
+  
+  - title: 搭建 BPB Panel
+    details: 利用 Cloudflare Workers/Pages 搭建 BPB Panel 代理服务端
+    link: docs/guide/BPB-Panel 
+  
   - title: Minecraft Server Installer
     details: Minecraft 服务器自动安装器
     link: docs/guide/MCSI
 
-  - title: 搭建 EdgeTunnel
-    details: 利用 Cloudflare Workers/Pages 搭建 EdgeTunnel 代理服务端
-    link: docs/guide/EdgeTunnel
+
 ---

@@ -1,25 +1,29 @@
 import { defineConfig } from 'vitepress'
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  
-  title: "Ad Blog",
-  lang: "zh",
+  base: "/",
+  title: "Ad",
+  lang: "zh-CN",
   description: "Ad 的博客",
-  head: [['link', { rel: 'icon', href: '../favicon.ico' }]],
+  head: [['link', { rel: 'icon', href: 'https://raw.gitcode.com/Ad_closeNN/img/blobs/b734bc5d42a27b2316158d87bf0f48e1773e0fe7/103355026.jpg' }]],
   lastUpdated: true,
+  titleTemplate: 'Ad 博客',
+  cleanUrls: true,
+  sitemap: {hostname: 'https://www.19991230.xyz'},
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
-    logo: '../favicon.ico',
+    logo: 'https://raw.gitcode.com/Ad_closeNN/img/blobs/b734bc5d42a27b2316158d87bf0f48e1773e0fe7/103355026.jpg',
     nav: [
       { text: '> 主页 <', link: '/' },
       { text: '所有文章',
         items: [
-          { text: '教程', link: '/docs' },
+          { text: '教程', link: '/docs/guide' },
         ]
       },
       { text: '特别文章',
         items: [
           { text: 'EdgeTunnel', link: '/docs/guide/EdgeTunnel' },
+          { text: 'BPB Panel', link: '/docs/guide/BPB-Panel'}
         ]
       }
     ],
@@ -29,15 +33,23 @@ export default defineConfig({
         text: '教程',
         items: [
           { text: 'MCSI', link: '/docs/guide/MCSI' },
-          { text: 'EdgeTunnel', link: '/docs/guide/EdgeTunnel' }
+          { text: 'EdgeTunnel', link: '/docs/guide/EdgeTunnel' },
+          { text: 'BPB Panel', link: '/docs/guide/BPB-Panel' }
+        ]
+      },
+      {
+        text: '其他',
+        items: [
+          { text: '团队展示页', link: '/docs/team' }
         ]
       }
     ],
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' },
+      { icon: 'github', link: 'https://github.com/Ad-closeNN/blog' },
       { icon: 'x', link: 'https://x.com/Ad_Cattt' },
-      { icon: 'youtube', link: 'https://www.youtube.com/@Ad-closeNN' }
+      { icon: 'youtube', link: 'https://www.youtube.com/@Ad-closeNN' },
+      { icon: 'discord', link: 'https://discord.19991230.xyz' }
     ],
 
     editLink: {
@@ -46,7 +58,7 @@ export default defineConfig({
     },
 
     lastUpdated: {
-      text: '最后更新于',
+      text: '本文档最后更新于',
       formatOptions: {
         dateStyle: 'full',
         timeStyle: 'medium',
@@ -54,7 +66,7 @@ export default defineConfig({
     },
     
     footer: {
-      message: '由 <a href="https://vitepress.dev" target="_blank">VitePress</a> 强力驱动<br><a href="https://icp.gov.moe/?keyword=20245460" target="_blank">萌ICP备20245460号</a>',
+      message: '<a href="https://status.19991230.xyz" target="_blank">Ad System 状态页</a><br><a href="https://icp.gov.moe/?keyword=20252024" target="_blank">萌ICP备20252024号</a>',
       copyright: 'Copyright © 2024 <a href="https://github.com/Ad-closeNN" target="_blank">Ad_closeNN</a>'
     },
     search: {
@@ -70,14 +82,16 @@ export default defineConfig({
                 resetButtonTitle: '清除查询条件',
                 footer: {
                   selectText: '选择',
-                  navigateText: '切换'
+                  navigateText: '切换',
+                  closeText: '关闭'
                 }
               }
             }
           }
         },
     outline: {
-      label: '本页面内导航'
+      label: '本页面内导航',
+      level: [2,3]
     },
         docFooter: {
           prev: '上一页',
@@ -89,7 +103,6 @@ export default defineConfig({
       darkModeSwitchLabel: '主题',
       lightModeSwitchTitle: '切换到浅色模式',
       darkModeSwitchTitle: '切换到深色模式',
-    
-    }
+    },
 }
 )
